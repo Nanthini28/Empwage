@@ -22,4 +22,16 @@ function get_emp_wage(){
         dailywage=$((working_hrs*rate))
         echo $dailywage
 }
+number_of_days=5
+rate=500
+count=0
+declare -A daily_salary
+while [ $count -lt $number_of_days ]
+do
+        is_present=$((RANDOM%3))
+        get_working $is_present $total_hrs
+        working_hrs=$return_value
+        daily_salary["day $count"]="$(get_emp_wage $working_hrs )"
+        ((count++))
+done
 
