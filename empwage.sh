@@ -4,6 +4,7 @@ fulltime=2;
 rateperhr=20;
 empcheck=$((RANDOM%3))
 echo "The case value:" $empcheck
+#Use Cases 1
 case $empcheck in
         $fulltime)
                 emphrs=8
@@ -17,3 +18,4 @@ case $empcheck in
 esac
 salary=$(($emphrs*$rateperhr));
 echo "Total Salary:" $salary
+echo "empcheck"
