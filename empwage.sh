@@ -1,21 +1,25 @@
 #!/bin/bash
-parttime=1;
-fulltime=2;
-rateperhr=20;
-empcheck=$((RANDOM%3))
-echo "The case value:" $empcheck
-#Use Cases 1
-case $empcheck in
-        $fulltime)
-                emphrs=8
-                ;;
-        $parttime)
-                emphrs=5
-                ;;
-        *)
-        emphrs=0
-                ;;
-esac
-salary=$(($emphrs*$rateperhr));
-echo "Total Salary:" $salary
-echo "empcheck"
+return_value=0
+function get_working(){
+        local emp_check=$1
+        local full_time=1
+        local part_time=2
+        case $emp_check in
+                $full_time)
+                        return_value=9
+                        ;;
+                $part_time)
+                        return_value=4
+                        ;;
+                *)
+                        return_value=0
+                        ;;
+                esac
+                return
+}
+function get_emp_wage(){
+        local working_hrs=$1
+        dailywage=$((working_hrs*rate))
+        echo $dailywage
+}
+
